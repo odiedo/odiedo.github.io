@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Odiedo Paul">
+    <title>myFinance</title>
+    <link rel="stylesheet" href="assets/fonts/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="#style.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        main {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100vh;
+            height: -webkit-fill-available;
+            max-height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .dashboard {
+            padding: 20px;
+        }
+        .balance {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .btn-action {
+            margin-right: 10px;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav i {
+            color: blueviolet;
+        }
+        .modal small {
+            font-weight: 900;
+        }
+        .modal input[type="text"],
+        .modal input[type="number"],
+        .modal input[type="date"] {
+            border: 1px solid blueviolet;
+        }
+        @keyframes scale {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 10px green;
+            }
+            50% {
+                transform: scale(1.1);
+                text-shadow: 0 0 50px blueviolet;
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 100px blueviolet;
+            }   
+        }
+        
+    </style>
+</head>
+<body class="d-flex h-100 text-dark">
+    <main>
+        <!-- Side nav bar -->
+        <div class="d-flex flex-column shadow flex-shrink-0 bg-light" style="width: 4.5rem; padding-top: 5%; color: blueviolet;">
+            <a href="/" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
+                <span style="font-weight:900; color: #000; font-family: cursive;">myFin</span>
+            </a>
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link  py-3 border-bottom" aria-current="page" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fas fa-tachometer-alt" style="color: blueviolet"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link py-3 border-bottom" title="Save" data-bs-toggle="tooltip" data-bs-placement="right" data-toggle="modal" data-target="#saveModal">
+                        <i class="fas fa-piggy-bank"  style="color: blueviolet" ></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link py-3 border-bottom" title="Withdraw" data-bs-toggle="tooltip" data-bs-placement="right" data-toggle="modal" data-target="#withdrawModal">
+                        <i class="fas fa-hand-holding-usd"  style="color: blueviolet"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="analysis.html" class="nav-link py-3 border-bottom" title="History" data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fas fa-chart-bar" style="color: blueviolet"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="chama.html" class="nav-link  text-light py-3 " title="Table Banking" data-bs-toggle="tooltip" style="border: 1px solid ; background: blueviolet ;">
+                        <i class="fas fa-users"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html" class="nav-link py-3 border-bottom" title="History" data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fas fa-history"  style="color: blueviolet"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link py-3 border-bottom" title="Security" data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fas fa-user-shield"  style="color: blueviolet"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="dropdown border-top">
+                <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/img/bg/bg-1.jpg" alt="mdo" width="24" height="24" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid" style="width: 95.5rem; background: #0001; overflow-x: scroll; ">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row mb-4">
+                        <div class="col-md-12 shadow">
+                            <h1 class="text-center pt-4 px-4" style="color: blueviolet; font-weight: 900; text-shadow: 0 0 10px #fff; ">Chama</h1>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <center>
+                                <button class="btn m-1" style="height: 40px; width: 150px; border-radius: 10px; cursor: pointer; outline: 0; border: 1px solid blueviolet; color: blueviolet; font-weight: 600"  data-toggle="modal" data-target="#groupModal"><i class="fas fa-plus"></i> Join Group</button>
+                                <button class="btn m-1" style="height: 40px; width: 80px; border-radius: 10px; cursor: pointer; outline: 0; border: 1px solid blueviolet; color: blueviolet; font-weight: 600"  data-toggle="modal" data-target="#tableBankingModal"><i class="fas fa-info-circle"></i> info</button>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="balance text-center p-4 m-4">
+                        <p><h6>Pay your chama:</h6> <h1 style="font-weight: 900; animation: scale 3s infinite;"><i class="fas fa-piggy-bank"></i></h1></p>
+                        <h6 id="countdown" style="color: green;">
+                        </h6>
+                    </div>
+
+                    <div class="row" style="line-height: 14px; color: blueviolet; font-weight: 500">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 pt-4 mb-4 border-bottom">
+                            <h5 style="font-weight: 900; color: #000; font-family: cursive ;">Table Banking</h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr style="background-color: blueviolet; color:  #fff;">
+                                        <td>Member</td>
+                                        <td>Amount</td>
+                                        <td>Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alaina Ann</td>
+                                        <td>300</td>
+                                        <td><i class="fas fa-check text-success"></i> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mercy Atyang</td>
+                                        <td>300</td>
+                                        <td><i class="fas fa-check text-success"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jere Gachua</td>
+                                        <td>300</td>
+                                        <td><i class="fas fa-minus text-danger"></i></td>
+                                    </tr>
+                                    <tr class="text-dark">
+                                        <td>Odiedo Paul</td>
+                                        <td>300</td>
+                                        <td><i class="fas fa-minus text-danger"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Festus Emuria</td>
+                                        <td>300</td>
+                                        <td><i class="fas fa-minus text-danger"></i></td>
+                                    </tr>
+                                </tbody>                           
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group join modal -->
+            <div class="modal" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="GroupModalTitle" aria-hidden="true" style="background:#0009; ">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header shadow">
+                            <h5 class="modal-title " style="font-weight: 900; color: blueviolet;"><i class="fas fa-usb"></i> Join Group </h5>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Group information -->
+                            <ul class="p-2">
+                                <li class="d-block">
+                                    <div class="card-body  m-0 p-2">
+                                        <small class="d-flex justify-content-between">
+                                            <small style="color: blueviolet; font-weight: 900;">Roadblock</small>
+                                        </small>
+                                        <small class="d-flex justify-content-between"><span>Members:</span> <span>9/10</span></small>
+                                        <small class="d-flex justify-content-between"><span>Amount:</span> <span>kshs. 500</span></small>
+                                        <small class="d-flex justify-content-between"><span>Frequency:</span> <span>Sun, Tue, Fri</span></small><br>
+                                        <small class="d-flex justify-content-between">
+                                            <small style="color: blueviolet; font-weight: 900;"></small>
+                                            <a href="#"  class="p-1" style="text-decoration: none; background: transparent; border: 1px solid blueviolet; color: blueviolet; border-radius: 6px; font-weight: 900; font-size: 10px;" onclick="joinGroup('group1')">Join Group</a>
+                                        </small>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li class="d-block">
+                                    <div class="card-body  m-0 p-2">
+                                        <small class="d-flex justify-content-between">
+                                            <small style="color: blueviolet; font-weight: 900;">Uplands</small>
+                                        </small>
+                                        <small class="d-flex justify-content-between"><span>Members:</span> <span>9/10</span></small>
+                                        <small class="d-flex justify-content-between"><span>Amount:</span> <span>kshs. 500</span></small>
+                                        <small class="d-flex justify-content-between"><span>Frequency:</span> <span>Sun, Tue, Fri</span></small><br>
+                                        <small class="d-flex justify-content-between">
+                                            <small style="color: blueviolet; font-weight: 900;"></small>
+                                            <a href="#"  class="p-1" style="text-decoration: none; background: transparent; border: 1px solid blueviolet; color: blueviolet; border-radius: 6px; font-weight: 900; font-size: 10px;" onclick="joinGroup('group1')">Join Group</a>
+                                        </small>
+                                    </div>
+                                </li>
+                                <hr>
+                                <li class="d-block">
+                                    <div class="card-body  m-0 p-2">
+                                        <small class="d-flex justify-content-between">
+                                            <small style="color: blueviolet; font-weight: 900;">Magharibi</small>
+                                        </small>
+                                        <small class="d-flex justify-content-between"><span>Members:</span> <span>9/10</span></small>
+                                        <small class="d-flex justify-content-between"><span>Amount:</span> <span>kshs. 500</span></small>
+                                        <small class="d-flex justify-content-between"><span>Frequency:</span> <span>Sun, Tue, Fri</span></small><br>
+                                        <small class="d-flex justify-content-between">
+                                            <small style="color: blueviolet; font-weight: 900;"></small>
+                                            <a href="#"  class="p-1" style="text-decoration: none; background: transparent; border: 1px solid blueviolet; color: blueviolet; border-radius: 6px; font-weight: 900; font-size: 10px;" onclick="joinGroup('group1')">Join Group</a>
+                                        </small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn " style="font-weight: 700; background-color: blueviolet; color: #fff" data-dismiss="modal">Close</button>
+                            <!-- Add a button to create a new group if needed -->
+                            <!-- <button type="button" class="btn btn-success" style="font-weight: 700; color: #fff">Create Group</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Banking info Modal -->
+            <div class="modal fade" id="tableBankingModal" tabindex="-1" role="dialog" aria-labelledby="tableBankingModalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header shadow">
+                            <h5 class="modal-title " style="font-weight: 900; color: blueviolet; "><i class="fas fa-users"></i> Table Banking </h5>
+                        </div>
+                        <div class="modal-body" style="font-size: 14px;">
+                            <p>Table banking is a community-based microfinance model where members pool their savings and lend to each other. Here are some rules for users:</p>
+                            <ol>
+                                <li><strong>Membership:</strong> Users must be members of the table banking group to participate. Membership may require regular contributions to the group's savings pool.</li>
+                                <li><strong>Savings:</strong> Each member contributes a predetermined amount regularly into the group's savings account. These savings serve as the capital base for lending activities.</li>
+                                <li><strong>Loans:</strong> Members can apply for loans from the pooled savings. Loan applications are subject to approval by the group, based on factors such as repayment history, need, and available funds.</li>
+                                <li><strong>Interest:</strong> Interest rates on loans are determined by the group and may vary based on factors such as loan term and purpose. The interest earned is redistributed among members as dividends or used to cover administrative expenses.</li>
+                                <li><strong>Repayment:</strong> Borrowers are required to repay their loans according to the agreed-upon terms, which typically include a specified repayment period and schedule. Failure to repay may result in penalties or restrictions on future borrowing.</li>
+                                <li><strong>Accountability:</strong> Transparency and accountability are essential. Regular meetings are held to review financial performance, discuss loan applications, and make collective decisions regarding the group's operations.</li>
+                                <li><strong>Governance:</strong> The group may elect leaders or committees responsible for managing day-to-day operations, overseeing finances, and enforcing rules and policies.</li>
+                                <li><strong>Risk Management:</strong> Measures are in place to mitigate risks, such as default by borrowers or mismanagement of funds. These may include loan guarantees, insurance, or savings reserves.</li>
+                            </ol>
+                            <p>By adhering to these rules, users can benefit from access to affordable credit, opportunities for savings, and mutual support within the community. Table banking promotes financial inclusion and empowerment at the grassroots level.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" style="font-weight: 700; color: #fff; background: blueviolet;" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card-content-display modal -->
+            <div class="modal fade " id="emergencyFund" tabindex="-1" role="dialog" aria-labelledby="EmergencyModalTitle" aria-hidden="true" style="box-shadow: 0 2px 6px 0 blueviolet; background:#0009">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header shadow">
+                    <h5 class="modal-title text-danger" style="font-weight: 900; color: blueviolet; "><i class="fas fa-fire"></i> Emergency Fund </h5>
+                    <button type="button" class="close " data-dismiss="modal" aria-label="Close" style="font-weight: 900; outline: none; color: blueviolet;">
+                        <span aria-hidden="true" class="">&times;</span> 
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="card-title" style="color: blueviolet;"></h5>
+                        <small class="d-flex justify-content-between"><span>Amount Saved:</span> <span>Kshs. 500</span></small><br>
+                        <small class="d-flex justify-content-between"><span>Target amount:</span> <span>Kshs. 10,000</span></small><br>
+                        <small class="d-flex justify-content-between"><span>Amount remaining:</span> <span>Kshs. 9,500</span></small><br>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-success" style=" font-weight: 700; color: #fff" data-dismiss="modal">save</button>
+                    <button type="button" class="btn btn-danger" style=" font-weight: 700; color: #fff">withdraw</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            'use strict'
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        })()
+    </script>
+    <script>
+        // Set the date for the countdown timer
+        var countdownDate = new Date();
+        countdownDate.setHours(countdownDate.getHours() + 24);
+    
+        // Update the countdown every second
+        var countdownTimer = setInterval(function() {
+            // Get the current date and time
+            var now = new Date().getTime();
+    
+            // Calculate the time remaining
+            var distance = countdownDate - now;
+    
+            // Calculate hours, minutes, and seconds
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = hours + "h "
+            + minutes + "m " + seconds + "s ";
+    
+            // If the countdown is over, reset the timer
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                countdownDate = new Date();
+                countdownDate.setHours(countdownDate.getHours() + 24);
+            }
+        }, 1000);
+    </script>
+    
+    <script src="assets/jquery/jquery-3.7.1.min.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
